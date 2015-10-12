@@ -13,3 +13,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 export NVM_DIR="/home/sunjay/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# For afterglow xbox controller -- may not necessarily work with multiple controllers (untested), try removing dbus argument if problems
+alias afterglowxbox="sudo xboxdrv --detach-kernel-driver --quiet -s -D --dbus disabled"
