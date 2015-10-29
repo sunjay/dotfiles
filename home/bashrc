@@ -16,3 +16,5 @@ export NVM_DIR="/home/sunjay/.nvm"
 
 # For afterglow xbox controller -- may not necessarily work with multiple controllers (untested), try removing dbus argument if problems
 alias afterglowxbox="sudo xboxdrv --detach-kernel-driver --quiet -s -D --dbus disabled"
+
+alias gttt="ssh root@geniustictactoe.com"
