@@ -30,6 +30,7 @@ Plugin 'othree/yajs.vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-commentary'
 Plugin 'majutsushi/tagbar'
+Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'chriskempson/base16-vim'
 
@@ -133,6 +134,9 @@ set tm=500
 " Add a bit of extra margin to the left
 set foldcolumn=1
 
+" Make it so that files aren't folded when loaded initially
+set foldlevelstart=20
+
 " Enable syntax highlighting
 syntax enable
 
@@ -162,6 +166,7 @@ set smarttab
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
 
 " Linebreak on 500 characters
 set lbr
@@ -205,9 +210,15 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " 2 spaces for JavaScript
 autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd Filetype javascript.jsx setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd Filetype scss setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+let g:jsx_ext_required = 0
+
+" 4 spaces for Python
+autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " vim css3 syntax fix for highlighted dashed properties
 augroup VimCSS3Syntax
@@ -242,3 +253,6 @@ let mapleader=","
 nmap <Leader>f :FufFileWithCurrentBufferDir<CR>
 nmap <Leader>b :FufBuffer<CR>
 nmap <Leader>t :FufTaggedFile<CR>
+
+" For toggling paste mode when pasting large amounts of preformatted text
+set pastetoggle=<F10>
