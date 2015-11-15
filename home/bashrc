@@ -18,3 +18,11 @@ export NVM_DIR="/home/sunjay/.nvm"
 alias afterglowxbox="sudo xboxdrv --detach-kernel-driver --quiet -s -D --dbus disabled"
 
 alias gttt="ssh root@geniustictactoe.com"
+
+function repeat {
+    while true :
+        do
+            "$@";
+            sleep 2;
+    done
+}
