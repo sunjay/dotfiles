@@ -220,6 +220,9 @@ let g:jsx_ext_required = 0
 " 4 spaces for Python
 autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
+" Fix problem with all indents before comment # being removed
+autocmd BufRead *.py inoremap # X<c-h>#<space>
+
 " vim css3 syntax fix for highlighted dashed properties
 augroup VimCSS3Syntax
   autocmd!
