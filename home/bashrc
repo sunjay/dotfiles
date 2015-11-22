@@ -17,8 +17,10 @@ export NVM_DIR="/home/sunjay/.nvm"
 # For afterglow xbox controller -- may not necessarily work with multiple controllers (untested), try removing dbus argument if problems
 alias afterglowxbox="sudo xboxdrv --detach-kernel-driver --quiet -s -D --dbus disabled"
 
+# ssh quick aliases
 alias gttt="ssh root@geniustictactoe.com"
 
+# repeat a command over and over again with 2 second sleep
 function repeat {
     while true :
         do
@@ -26,3 +28,8 @@ function repeat {
             sleep 2;
     done
 }
+
+# attempts to fix the problem where the bluetooth turns itself off
+# over and over again when something goes wrong
+alias fixbluetooth="rfkill list bluetooth && rfkill unblock bluetooth && rfkill list bluetooth"
+
