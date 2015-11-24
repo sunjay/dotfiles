@@ -163,6 +163,11 @@ set expandtab
 " Be smart when using tabs
 set smarttab
 
+" Stop auto indentation of # character
+set cindent
+set cinkeys-=0#
+set indentkeys-=0#
+
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
