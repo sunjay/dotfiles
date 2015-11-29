@@ -264,3 +264,6 @@ nmap <Leader>t :FufTaggedFile<CR>
 
 " For toggling paste mode when pasting large amounts of preformatted text
 set pastetoggle=<F10>
+
+" Stop warning about existing swap files
+set shortmess+=A
