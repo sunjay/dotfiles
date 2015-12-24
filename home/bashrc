@@ -33,6 +33,11 @@ function repeat {
 # over and over again when something goes wrong
 alias fixbluetooth="rfkill list bluetooth && rfkill unblock bluetooth && rfkill list bluetooth"
 
+# Tries to restart cinnamon (use from tty - Ctrl + Alt + F6 or Fn)
+# Note: for this to work, run the w command and make sure the DISPLAY number
+# in the FROM column is correct
+alias restartcinnamon="export DISPLAY=:0.0; cinnamon"
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
