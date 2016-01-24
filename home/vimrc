@@ -33,6 +33,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'chriskempson/base16-vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'alunny/pegjs-vim'
 
 " All plugins must be added before this line
 call vundle#end()
