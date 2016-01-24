@@ -128,8 +128,11 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" Don't enable folding
+set nofoldenable
+
 " Add a bit of extra margin to the left
-set foldcolumn=1
+set foldcolumn=2
 
 " Make it so that files aren't folded when loaded initially
 set foldlevelstart=20
@@ -208,7 +211,7 @@ set splitright
 set splitbelow
 
 " vim markdown plugin
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown nofoldenable
 
 " 2 spaces for JavaScript
 autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
