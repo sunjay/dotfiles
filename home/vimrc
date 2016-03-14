@@ -35,6 +35,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'chriskempson/base16-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'alunny/pegjs-vim'
+Plugin 'kergoth/vim-hilinks'
 
 " All plugins must be added before this line
 call vundle#end()
