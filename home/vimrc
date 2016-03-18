@@ -36,6 +36,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'alunny/pegjs-vim'
 Plugin 'kergoth/vim-hilinks'
+Plugin 'lambdatoast/elm.vim'
 
 " All plugins must be added before this line
 call vundle#end()
