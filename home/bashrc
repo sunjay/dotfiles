@@ -5,6 +5,9 @@ eval "$(thefuck --alias FUCK)"
 export PATH="$HOME/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.10.3/bin:$PATH"
 export PATH=~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH
 
+# Making sure cargo install binaries are visible
+export PATH=/home/sunjay/.cargo/bin:$PATH
+
 # swift language
 export PATH=/home/sunjay/Programs/swift/usr/bin/:"${PATH}"
 
