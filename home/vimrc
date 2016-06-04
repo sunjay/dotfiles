@@ -38,6 +38,7 @@ Plugin 'alunny/pegjs-vim'
 Plugin 'kergoth/vim-hilinks'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'vim-scripts/ebnf.vim'
 
 " All plugins must be added before this line
 call vundle#end()
@@ -270,3 +271,11 @@ set pastetoggle=<F10>
 
 " Stop warning about existing swap files
 set shortmess+=A
+
+" YouCompleteMe racer rust src path
+" Download Rust source code and put it in this directory
+let g:ycm_rust_src_path = '/home/sunjay/Downloads/rustc-1.9.0/src'
+
+" ebnf filetype
+au BufRead,BufNewFile *.ebnf		set filetype=ebnf
+
