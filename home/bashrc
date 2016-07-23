@@ -13,6 +13,10 @@ export PATH=/home/sunjay/Programs/swift/usr/bin/:"${PATH}"
 
 alias haskell=ghci
 
+# clojure
+alias clojurei="lein repl"
+alias clojure="lein"
+
 export WORKON_HOME=.
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
