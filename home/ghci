@@ -3,3 +3,5 @@
 :set editor vim
 
 :set -fbreak-on-exception
+
+:def clear \_ -> return $ ":!clear"
