@@ -6,6 +6,12 @@ eval "$(thefuck --alias)"
 # You can use whatever you want as an alias, like for Mondays:
 eval "$(thefuck --alias FUCK)"
 
+# Extra directory like /usr and /usr/local created because root partition filled up
+export PATH=$PATH:~/.usr/bin
+
+# Cabal executable directory
+export PATH=$PATH:~/.cabal/bin
+
 # The directory that stack installs executables
 export PATH=$PATH:~/.local/bin
 
