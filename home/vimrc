@@ -39,7 +39,7 @@ Plugin 'kergoth/vim-hilinks'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'vim-scripts/ebnf.vim'
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
 " All plugins must be added before this line
 call vundle#end()
@@ -281,14 +281,19 @@ let g:ycm_rust_src_path = '/home/sunjay/Downloads/rustc-1.9.0/src'
 au BufRead,BufNewFile *.ebnf		set filetype=ebnf
 
 " Syntastic recommended settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"
-"let g:syntastic_javascript_checkers = ['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
+
+" Better :sign interface symbols
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
+
 
