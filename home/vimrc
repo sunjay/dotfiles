@@ -39,7 +39,7 @@ Plugin 'kergoth/vim-hilinks'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'vim-scripts/ebnf.vim'
-#Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 
 " All plugins must be added before this line
 call vundle#end()
