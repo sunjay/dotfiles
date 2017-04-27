@@ -40,6 +40,9 @@ alias afterglowxbox="sudo xboxdrv --detach-kernel-driver --quiet --mimic-xpad -s
 # ssh quick aliases
 alias gttt="ssh root@geniustictactoe.com"
 
+# Research cluster for CHIL at University of Waterloo
+alias daytona="ssh s5varma@daytona.cs.uwaterloo.ca"
+
 # repeat a command over and over again with 2 second sleep
 function repeat {
     while true :
