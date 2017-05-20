@@ -23,6 +23,8 @@ export PATH=/home/sunjay/Programs/swift/usr/bin/:"${PATH}"
 
 alias haskell=ghci
 
+alias open="xdg-open"
+
 # clojure
 alias clojurei="lein repl"
 alias clojure="lein"
