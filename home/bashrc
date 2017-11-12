@@ -29,6 +29,9 @@ export RUST_SRC_PATH=~/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/li
 alias haskell=ghci
 export PATH=/opt/ghc/bin/:"${PATH}"
 
+# node language
+export PATH="$PATH:`yarn global bin`"
+
 alias open="xdg-open"
 
 # clojure
@@ -50,6 +53,10 @@ alias gttt="ssh root@geniustictactoe.com"
 
 # Research cluster for CHIL at University of Waterloo
 alias daytona="ssh s5varma@daytona.cs.uwaterloo.ca"
+
+# Research machine for plg.uwaterloo.ca
+alias plg="ssh s5varma@plg2.uwaterloo.ca"
+alias plg-sync='rsync --exclude-from=.gitignore --exclude=.git -avzPHu "$(readlink -f ~/Documents/projects/cfa-cc/src/)" s5varma@plg2.uwaterloo.ca:/u0/s5varma/software/cfa-cc/'
 
 # repeat a command over and over again with 2 second sleep
 function repeat {
