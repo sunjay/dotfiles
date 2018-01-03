@@ -262,6 +262,11 @@ if [ -x /usr/bin/mint-fortune ]; then
      /usr/bin/mint-fortune
 fi
 
+# Copy to clipboard via xclip (apt install xclip)
+alias copy='xclip -selection clipboard'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# added by travis gem
+[ -f /home/sunjay/.travis/travis.sh ] && source /home/sunjay/.travis/travis.sh
