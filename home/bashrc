@@ -6,6 +6,10 @@ eval "$(thefuck --alias)"
 # You can use whatever you want as an alias, like for Mondays:
 eval "$(thefuck --alias FUCK)"
 
+# Better, faster replacement for cloc (in Rust!)
+# https://github.com/cgag/loc
+alias cloc="loc"
+
 # Extra directory like /usr and /usr/local created because root partition filled up
 export PATH=$PATH:~/.usr/bin
 
@@ -51,8 +55,8 @@ alias afterglowxbox="sudo xboxdrv --detach-kernel-driver --quiet --mimic-xpad -s
 # ssh quick aliases
 alias gttt="ssh root@geniustictactoe.com"
 
-# Research cluster for CHIL at University of Waterloo
-alias daytona="ssh s5varma@daytona.cs.uwaterloo.ca"
+# University of Waterloo Student Linux
+alias cslinux-student="ssh s5varma@linux.student.cs.uwaterloo.ca"
 
 # Research machine for plg.uwaterloo.ca
 alias plg="ssh s5varma@plg2.uwaterloo.ca"
