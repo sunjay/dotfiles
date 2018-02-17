@@ -57,6 +57,8 @@ alias gttt="ssh root@geniustictactoe.com"
 
 # University of Waterloo Student Linux
 alias cslinux-student="ssh s5varma@linux.student.cs.uwaterloo.ca"
+# University of Waterloo ECE Linux
+alias ecelinux="ssh s5varma@ecelinux.uwaterloo.ca"
 
 # Research machine for plg.uwaterloo.ca
 alias plg="ssh s5varma@plg2.uwaterloo.ca"
