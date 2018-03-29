@@ -276,3 +276,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # added by travis gem
 [ -f /home/sunjay/.travis/travis.sh ] && source /home/sunjay/.travis/travis.sh
+
+# exercism.io
+if [ -f ~/.config/exercism/exercism_completion.bash ]; then
+  . ~/.config/exercism/exercism_completion.bash
+fi
+
