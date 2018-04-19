@@ -1,0 +1,14 @@
+[user]
+	email = varma.sunjay@gmail.com
+	name = Sunjay Varma
+[gui]
+	diffopts = -w
+[core]
+	excludesfile = /home/sunjay/.gitignore
+[push]
+	default = simple
+[rerere]
+	enabled = true
+[alias]
+    pr = "!bash -c 'if [ -z \"$*\" ]; then echo \"git pr <pr-number> [<branch>]\"; exit 1; fi; git fetch origin pull/$1/head:${2:-pr$1}; git checkout ${2:-pr$1};' -"
+
