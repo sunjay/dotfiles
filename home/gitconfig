@@ -10,5 +10,5 @@
 [rerere]
 	enabled = true
 [alias]
-    pr = "!bash -c 'if [ -z \"$*\" ]; then echo \"git pr <pr-number> [<branch>]\"; exit 1; fi; git fetch origin pull/$1/head:${2:-pr$1}; git checkout ${2:-pr$1};' -"
+    pr = "!bash -c 'if [ -z \"$*\" ]; then echo \"git pr <pr-number> [<branch>]\"; exit 1; fi; git fetch origin -u pull/$1/head:${2:-pr$1}; git checkout ${2:-pr$1};' -"
 
