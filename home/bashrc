@@ -14,7 +14,7 @@ alias cloc="loc"
 export PATH=$PATH:~/.usr/bin
 
 # Cabal executable directory
-export PATH=$PATH:~/.cabal/bin
+export PATH=~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH
 
 # The directory that stack installs executables
 export PATH=$PATH:~/.local/bin
