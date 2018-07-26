@@ -285,3 +285,7 @@ fi
 
 export SWIVM_DIR="/home/sunjay/.swivm"
 [ -s "$SWIVM_DIR/swivm.sh" ] && . "$SWIVM_DIR/swivm.sh"  # This loads swivm
+
+# For ClockworkPI GameShell - device must be ON
+alias cpi='ssh cpi@10.0.0.216'
+
