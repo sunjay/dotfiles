@@ -289,3 +289,8 @@ export SWIVM_DIR="/home/sunjay/.swivm"
 # For ClockworkPI GameShell - device must be ON
 alias cpi='ssh cpi@10.0.0.216'
 
+source /usr/share/bash-completion/completions/git
+# (or /etc/bash_completion.d/git-completion.bash)
+alias g='git'
+__git_complete g __git_main
+
