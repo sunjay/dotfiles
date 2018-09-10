@@ -57,6 +57,8 @@ alias gttt="ssh root@geniustictactoe.com"
 
 # University of Waterloo Student Linux
 alias cslinux-student="ssh s5varma@linux.student.cs.uwaterloo.ca"
+alias cslinux-student-x11="ssh -Y s5varma@linux.student.cs.uwaterloo.ca"
+alias matlab="cslinux-student-x11 -t 'bash -lc matlab'"
 # University of Waterloo ECE Linux
 alias ecelinux="ssh s5varma@ecelinux.uwaterloo.ca"
 
