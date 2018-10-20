@@ -58,7 +58,7 @@ alias gttt="ssh root@geniustictactoe.com"
 # University of Waterloo Student Linux
 alias cslinux-student="ssh s5varma@linux.student.cs.uwaterloo.ca"
 alias cslinux-student-x11="ssh -Y s5varma@linux.student.cs.uwaterloo.ca"
-alias matlab="cslinux-student-x11 -t 'bash -lc matlab'"
+alias matlab="cslinux-student-x11 -t '/bin/bash -lc matlab'"
 # University of Waterloo ECE Linux
 alias ecelinux="ssh s5varma@ecelinux.uwaterloo.ca"
 
@@ -289,10 +289,32 @@ export SWIVM_DIR="/home/sunjay/.swivm"
 [ -s "$SWIVM_DIR/swivm.sh" ] && . "$SWIVM_DIR/swivm.sh"  # This loads swivm
 
 # For ClockworkPI GameShell - device must be ON
-alias cpi='ssh cpi@192.168.1.241'
+export CPI_ADDR=192.168.0.119
+alias cpi='ssh cpi@$CPI_ADDR'
+function copy_cpi() {
+    if (( $# < 2 )); then
+        echo "usage: cpi-cp file destination" >&2
+        return 1
+    fi 
+    # Copy all the files except the last argument
+    # Last argument is used for destination path
+    rsync -vazPh --update ${@:1:$#-1} cpi@$CPI_ADDR:${!#}
+}
+alias cpi-cp='copy_cpi'
+alias cpi-cp-caves='cpi-cp assets target/armv7-unknown-linux-gnueabihf/release/caves games/Rust/caves/'
 
 source /usr/share/bash-completion/completions/git
 # (or /etc/bash_completion.d/git-completion.bash)
 alias g='git'
 __git_complete g __git_main
+
+# Java 8 JDK Setup + checker framework
+export JAVA_8_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=$JAVA_8_HOME
+export PATH=$JAVA_HOME/bin:$PATH
+export JSR308=$HOME/Documents/projects/jsr308
+export PATH=$CHECKERFRAMEWORK/checker/bin-devel:${PATH}
+export AFU=$JSR308/annotation-tools/annotation-file-utilities
+export PATH=$AFU/scripts:$JSR308/z3/bin:$PATH
+
 
