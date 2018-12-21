@@ -6,6 +6,9 @@
 # You can use whatever you want as an alias, like for Mondays:
 #eval "$(thefuck --alias FUCK)"
 
+# Android development tools (e.g. adb)
+export PATH=$PATH:~/Android/Sdk/platform-tools
+
 # Better, faster replacement for cloc (in Rust!)
 # https://github.com/Aaronepower/tokei
 alias cloc="tokei"
