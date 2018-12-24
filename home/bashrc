@@ -292,7 +292,7 @@ export SWIVM_DIR="/home/sunjay/.swivm"
 [ -s "$SWIVM_DIR/swivm.sh" ] && . "$SWIVM_DIR/swivm.sh"  # This loads swivm
 
 # For ClockworkPI GameShell - device must be ON
-export CPI_ADDR=192.168.0.119
+export CPI_ADDR=192.168.0.26
 alias cpi='ssh cpi@$CPI_ADDR'
 function copy_cpi() {
     if (( $# < 2 )); then
