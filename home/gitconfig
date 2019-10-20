@@ -5,6 +5,7 @@
 	diffopts = -w
 [core]
 	excludesfile = /home/sunjay/.gitignore
+	editor = vim
 [push]
 	default = simple
 [rerere]
@@ -12,3 +13,8 @@
 [alias]
     pr = "!bash -c 'if [ -z \"$*\" ]; then echo \"git pr <pr-number> [<branch>]\"; exit 1; fi; git fetch -u origin pull/$1/head:${2:-pr$1}; git checkout ${2:-pr$1}; git merge FETCH_HEAD' -"
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

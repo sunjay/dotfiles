@@ -63,7 +63,10 @@ alias cslinux-student="ssh s5varma@linux.student.cs.uwaterloo.ca"
 alias cslinux-student-x11="ssh -Y s5varma@linux.student.cs.uwaterloo.ca"
 alias matlab="cslinux-student-x11 -t '/bin/bash -lc matlab'"
 # University of Waterloo ECE Linux
-alias ecelinux="ssh s5varma@ecelinux.uwaterloo.ca"
+alias ecelinux="ssh s5varma@eceubuntu.uwaterloo.ca"
+
+# Waterloo Computer Science Club Servers
+alias csc-hfcs="ssh s5varma@hfcs.csclub.uwaterloo.ca"
 
 # Research machine for plg.uwaterloo.ca
 alias plg="ssh s5varma@plg2.uwaterloo.ca"
@@ -292,7 +295,7 @@ export SWIVM_DIR="/home/sunjay/.swivm"
 [ -s "$SWIVM_DIR/swivm.sh" ] && . "$SWIVM_DIR/swivm.sh"  # This loads swivm
 
 # For ClockworkPI GameShell - device must be ON
-export CPI_ADDR=192.168.0.26
+export CPI_ADDR=192.168.43.148
 alias cpi='ssh cpi@$CPI_ADDR'
 function copy_cpi() {
     if (( $# < 2 )); then
@@ -320,4 +323,9 @@ export PATH=$CHECKERFRAMEWORK/checker/bin-devel:${PATH}
 export AFU=$JSR308/annotation-tools/annotation-file-utilities
 export PATH=$AFU/scripts:$JSR308/z3/bin:$PATH
 
-
+# Display scaling of Qt 5.6+ applications
+# https://mathematica.stackexchange.com/a/159439/42704
+export QT_SCALE_FACTOR=1.5
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
