@@ -18,3 +18,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[diff "wasm"]
+	textconv = wasm2wat --enable-all --generate-names
