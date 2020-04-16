@@ -64,6 +64,9 @@ alias cslinux-student-x11="ssh -Y s5varma@linux.student.cs.uwaterloo.ca"
 alias matlab="cslinux-student-x11 -t '/bin/bash -lc matlab'"
 # University of Waterloo ECE Linux
 alias eceubuntu="ssh s5varma@eceubuntu.uwaterloo.ca"
+alias ecetesla="ssh s5varma@ecetesla0.uwaterloo.ca"
+alias ecetesla0="ssh s5varma@ecetesla0.uwaterloo.ca"
+alias ecetesla1="ssh s5varma@ecetesla1.uwaterloo.ca"
 
 # Waterloo Computer Science Club Servers
 alias csc-hfcs="ssh s5varma@hfcs.csclub.uwaterloo.ca"
@@ -329,3 +332,9 @@ export QT_SCALE_FACTOR=1.5
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+
+# Make sml easier to use - apt install rlwrap
+# sml = Standard ML of New Jersey
+alias sml="rlwrap sml"
+# Force sml to print output - https://comp.lang.ml.narkive.com/dx5tJM2q/controlling-print-depth-in-sml-nj-top-level
+export PRINT_DEPTH=1024
