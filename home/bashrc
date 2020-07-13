@@ -45,10 +45,6 @@ alias open="xdg-open"
 alias clojurei="lein repl"
 alias clojure="lein"
 
-export WORKON_HOME=.
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
-
 export NVM_DIR="/home/sunjay/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
