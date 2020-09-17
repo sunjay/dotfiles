@@ -28,10 +28,6 @@ source $HOME/.cargo/env
 # swift language
 export PATH=/home/sunjay/Programs/swift/usr/bin/:"${PATH}"
 
-# Rust src path
-# See: https://github.com/rust-lang-nursery/rls#setup
-export RUST_SRC_PATH=~/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/
-
 # haskell language
 alias haskell=ghci
 export PATH=/opt/ghc/bin/:"${PATH}"
