@@ -2,10 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-#eval "$(thefuck --alias)"
-# You can use whatever you want as an alias, like for Mondays:
-#eval "$(thefuck --alias FUCK)"
-
 # Android development tools (e.g. adb)
 export PATH=$PATH:~/Android/Sdk/platform-tools
 
@@ -13,59 +9,11 @@ export PATH=$PATH:~/Android/Sdk/platform-tools
 # https://github.com/Aaronepower/tokei
 alias cloc="tokei"
 
-# Extra directory like /usr and /usr/local created because root partition filled up
-export PATH=$PATH:~/.usr/bin
-
-# Cabal executable directory
-export PATH=~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH
-
-# The directory that stack installs executables
-export PATH=$PATH:~/.local/bin
-
-# Making sure cargo install binaries are visible
-source $HOME/.cargo/env
-
-# swift language
-export PATH=/home/sunjay/Programs/swift/usr/bin/:"${PATH}"
-
-# haskell language
-alias haskell=ghci
-export PATH=/opt/ghc/bin/:"${PATH}"
-
-# node language
-export PATH="$PATH:`yarn global bin`"
-
+# For MacOS muscle memory
 alias open="xdg-open"
-
-# clojure
-alias clojurei="lein repl"
-alias clojure="lein"
-
-export NVM_DIR="/home/sunjay/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# For afterglow xbox controller -- may not necessarily work with multiple controllers (untested), try removing dbus argument if problems
-alias afterglowxbox="sudo xboxdrv --detach-kernel-driver --quiet --mimic-xpad -s"
-
-# ssh quick aliases
-alias gttt="ssh root@geniustictactoe.com"
-
-# University of Waterloo Student Linux
-alias cslinux-student="ssh s5varma@linux.student.cs.uwaterloo.ca"
-alias cslinux-student-x11="ssh -Y s5varma@linux.student.cs.uwaterloo.ca"
-alias matlab="cslinux-student-x11 -t '/bin/bash -lc matlab'"
-# University of Waterloo ECE Linux
-alias eceubuntu="ssh s5varma@eceubuntu.uwaterloo.ca"
-alias ecetesla="ssh s5varma@ecetesla0.uwaterloo.ca"
-alias ecetesla0="ssh s5varma@ecetesla0.uwaterloo.ca"
-alias ecetesla1="ssh s5varma@ecetesla1.uwaterloo.ca"
 
 # Waterloo Computer Science Club Servers
 alias csc-hfcs="ssh s5varma@hfcs.csclub.uwaterloo.ca"
-
-# Research machine for plg.uwaterloo.ca
-alias plg="ssh s5varma@plg2.uwaterloo.ca"
-alias plg-sync='rsync --exclude-from=.gitignore --exclude=.git -avzPHu "$(readlink -f ~/Documents/projects/cfa-cc/src/)" s5varma@plg2.uwaterloo.ca:/u0/s5varma/software/cfa-cc/'
 
 # repeat a command over and over again with 2 second sleep
 function repeat {
@@ -75,77 +23,6 @@ function repeat {
             sleep 2;
     done
 }
-
-# attempts to fix the problem where the bluetooth turns itself off
-# over and over again when something goes wrong
-alias fixbluetooth="rfkill list bluetooth && rfkill unblock bluetooth && rfkill list bluetooth"
-
-# Tries to restart cinnamon (use from tty - Ctrl + Alt + F6 or Fn)
-# Note: for this to work, run the w command and make sure the DISPLAY number
-# in the FROM column is correct
-alias restartcinnamon="export DISPLAY=:0.0; cinnamon"
-
-###-begin-npm-completion-###
-#
-# npm command completion script
-#
-# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
-# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
-#
-
-if type complete &>/dev/null; then
-  _npm_completion () {
-    local words cword
-    if type _get_comp_words_by_ref &>/dev/null; then
-      _get_comp_words_by_ref -n = -n @ -w words -i cword
-    else
-      cword="$COMP_CWORD"
-      words=("${COMP_WORDS[@]}")
-    fi
-
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           npm completion -- "${words[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  complete -o default -F _npm_completion npm
-elif type compdef &>/dev/null; then
-  _npm_completion() {
-    local si=$IFS
-    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
-                 COMP_LINE=$BUFFER \
-                 COMP_POINT=0 \
-                 npm completion -- "${words[@]}" \
-                 2>/dev/null)
-    IFS=$si
-  }
-  compdef _npm_completion npm
-elif type compctl &>/dev/null; then
-  _npm_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       npm completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K _npm_completion npm
-fi
-###-end-npm-completion-###
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 ##### AUTO-GENERATED SECTION INCLUDED WITH LINUX #####
 
@@ -184,7 +61,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm|xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -204,20 +81,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    if [[ ${EUID} == 0 ]] ; then
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
-    else
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w \$\[\033[00m\] '
-    fi
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h \w \$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -267,27 +140,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -x /usr/bin/mint-fortune ]; then
-     /usr/bin/mint-fortune
-fi
+##### END AUTO-GENERATED SECTION INCLUDED WITH LINUX #####
 
 # Copy to clipboard via xclip (apt install xclip)
 alias copy='xclip -selection clipboard'
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# added by travis gem
-[ -f /home/sunjay/.travis/travis.sh ] && source /home/sunjay/.travis/travis.sh
 
 # exercism.io
 if [ -f ~/.config/exercism/exercism_completion.bash ]; then
   . ~/.config/exercism/exercism_completion.bash
 fi
-
-
-export SWIVM_DIR="/home/sunjay/.swivm"
-[ -s "$SWIVM_DIR/swivm.sh" ] && . "$SWIVM_DIR/swivm.sh"  # This loads swivm
 
 # For ClockworkPI GameShell - device must be ON
 export CPI_ADDR=192.168.0.34
@@ -296,7 +157,7 @@ function copy_cpi() {
     if (( $# < 2 )); then
         echo "usage: cpi-cp file destination" >&2
         return 1
-    fi 
+    fi
     # Copy all the files except the last argument
     # Last argument is used for destination path
     rsync -vazPh --update ${@:1:$#-1} cpi@$CPI_ADDR:${!#}
@@ -304,23 +165,16 @@ function copy_cpi() {
 alias cpi-cp='copy_cpi'
 alias cpi-cp-caves='cpi-cp assets target/armv7-unknown-linux-gnueabihf/release/caves games/Rust/caves/'
 
+# git bash completion
 source /usr/share/bash-completion/completions/git
 # (or /etc/bash_completion.d/git-completion.bash)
 alias g='git'
 __git_complete g __git_main
 
-# Java 8 JDK Setup + checker framework
-export JAVA_8_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export JAVA_HOME=$JAVA_8_HOME
-export PATH=$JAVA_HOME/bin:$PATH
-export JSR308=$HOME/Documents/projects/jsr308
-export PATH=$CHECKERFRAMEWORK/checker/bin-devel:${PATH}
-export AFU=$JSR308/annotation-tools/annotation-file-utilities
-export PATH=$AFU/scripts:$JSR308/z3/bin:$PATH
-
 # Display scaling of Qt 5.6+ applications
 # https://mathematica.stackexchange.com/a/159439/42704
-export QT_SCALE_FACTOR=1.5
+#export QT_SCALE_FACTOR=1.5
+
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
@@ -330,3 +184,6 @@ export PATH="$HOME/gems/bin:$PATH"
 alias sml="rlwrap sml"
 # Force sml to print output - https://comp.lang.ml.narkive.com/dx5tJM2q/controlling-print-depth-in-sml-nj-top-level
 export PRINT_DEPTH=1024
+
+# Add cargo, rustc, etc. to path
+source "$HOME/.cargo/env"
