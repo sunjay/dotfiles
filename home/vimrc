@@ -2,60 +2,13 @@
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
 
-" Ignores flags for plugin and indent but turns filetype detection off
-filetype off
-
-" Setting up vundle package manager
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'lsdr/monokai'
-"Plugin 'preservim/nerdtree'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'xolox/vim-misc'
-"Plugin 'xolox/vim-session'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'othree/html5.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'L9'
-Plugin 'FuzzyFinder'
-Plugin 'mattn/emmet-vim'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'ap/vim-css-color'
-Plugin 'othree/yajs.vim'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-commentary'
-"Plugin 'majutsushi/tagbar'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'chriskempson/base16-vim'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'alunny/pegjs-vim'
-Plugin 'kergoth/vim-hilinks'
-Plugin 'lambdatoast/elm.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'vim-scripts/ebnf.vim'
-"Plugin 'scrooloose/syntastic'
-
-" All plugins must be added before this line
-call vundle#end()
-filetype plugin indent on
-
-" The rest of configuration file goes here
-
 " Allows vim to manage multiple buffers better. Current buffer can
-" be put to the background without writing to disk. Undo history is preserved.
+" be put to the background without writing to disk. Undo history is
+" preserved.
 set hidden
 
 " Keeps more than the default 20 commands and search patterns
 set history=1000
-
-" Extends % matching to match if/elseif/else/end and even open/closing XML tags
-runtime macros/matchit.vim
 
 " Better command completion that shows you options rather than just
 " going to the first command
@@ -146,7 +99,7 @@ set foldlevelstart=20
 syntax enable
 
 " Enable colorscheme
-colorscheme monokai
+colorscheme desert
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -192,107 +145,22 @@ set si
 " Display line numbers
 set number
 
-" Use F2 to toggle nerd tree
-"map <F2> :NERDTreeToggle<CR>
-
-" Use F8 to toggle tagbar
-nmap <F8> :TagbarToggle<CR>
-
 " automatically change window's cwd to file's dir
 set autochdir
 
-" Powerline setup
-set guifont="DejaVu Sans Mono for Powerline"
-set laststatus=2
-
-" Tells vim-session plugin to auto save the session
-" and auto load it when vim starts
-:let g:session_autosave='yes'
-:let g:session_autoload='yes'
-
 " Forces vsplit to split to the right instead of the left
 set splitright
-" Forces split to split below instead of above 
+" Forces split to split below instead of above
 set splitbelow
-
-" vim markdown plugin
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown nofoldenable
-
-" 2 spaces for JavaScript
-autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-autocmd Filetype javascript.jsx setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-autocmd Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-autocmd Filetype scss setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-
-let g:jsx_ext_required = 0
-
-" 4 spaces for Python
-autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " Fix problem with all indents before comment # being removed
 autocmd BufRead *.py inoremap # X<c-h>#<space>
 
-" vim css3 syntax fix for highlighted dashed properties
-augroup VimCSS3Syntax
-  autocmd!
-
-  autocmd FileType css setlocal iskeyword+=-
-  autocmd FileType scss setlocal iskeyword+=-
-augroup END
-
-" Command for trimming ALL whilespace in a file
-function! s:StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-command! Trim call s:StripTrailingWhitespaces()
-
 " Make vim commands appear so you can see which command you're typing
 set showcmd
-
-" Make the leader key more convenient
-let mapleader=","
-
-" Fuzzy finder keybindings
-nmap <Leader>f :FufFileWithCurrentBufferDir<CR>
-nmap <Leader>b :FufBuffer<CR>
-nmap <Leader>t :FufTaggedFile<CR>
 
 " For toggling paste mode when pasting large amounts of preformatted text
 set pastetoggle=<F10>
 
 " Stop warning about existing swap files
 set shortmess+=A
-
-" YouCompleteMe racer rust src path
-" Download Rust source code and put it in this directory
-let g:ycm_rust_src_path = '/home/sunjay/Downloads/rustc-1.9.0/src'
-
-" ebnf filetype
-au BufRead,BufNewFile *.ebnf		set filetype=ebnf
-
-" Syntastic recommended settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"
-"let g:syntastic_javascript_checkers = ['eslint']
-"
-" Better :sign interface symbols
-"let g:syntastic_error_symbol = '✗'
-"let g:syntastic_warning_symbol = '!'
-
